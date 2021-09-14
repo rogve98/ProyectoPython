@@ -1,34 +1,8 @@
-"""
-Este programa nos brinda un resumen del estado de cuenta de una tarjeta de crédito
-"""
+"""Las siguientes funciones realizan cálculos para recalcular deudas, genera una lista con la 
+información de un diccionario con datos, y por último nos imprime dicha información en forma de
+reporte de tarjeta. """
 
-import os
-os.system("clear")
 
-def creaTarjeta():
-    """Esta función solicita una serie de datos para generar cálculos y para ordenarlos 
-    en un reporte de pagos"""
-    nombre = input("Nombre de la tarjeta: ")
-    tasaAnual = float(input("Tasa de interés anual de la tarjeta (%): "))
-    deuda = float(input("Escribe el monto de la deuda actual de la tarjeta: "))
-    pago = float(input("Escribe el monto del pago a realizar: "))
-        
-    #Si el pago es mayor a la deuda, solicitamos que intente de nuevo el procedimiento
-    if pago > deuda:
-        print("No es posible realizar un pago mayor a la deuda, intente de nuevo.")
-        return
-    else:
-        pass
-
-    cargos = float(input("Escribe el monto total de los nuevos cargos: "))
-    #Generamos un diccionario con los datos recabados
-    return {"Nombre de Tarjeta":nombre,
-    "Tasa Anual":tasaAnual,
-    "Deuda Actual":deuda,
-    "Monto del Pago":pago,
-    "Nuevos cargos del mes":cargos}
-
-    
 def capturaNuevaTarjeta(diccionario):
     """Esta función hará una serie de cálculos para notar el interés mensual,
      y deudas recalculada con base en los datos solicitados """
@@ -84,18 +58,3 @@ def imprimeReporte(reporte):
     print(f"{reporte[7][0]}:    {reporte[7][1]:.2f}")
     print("-"*40)
     print(f"{reporte[8][0]}:    {reporte[8][1]:.2f}") 
-    
-def main():
-    """Fución principal del programa"""
-
-    # 1. Solicitar datos
-    # 2. Realizar cálculos para la deuda y agregar entradas al diccionario
-    # 3. Generar una lista donde se guardarán los datos del reporte
-    # 4. Imprimir el reporte
-
-    imprimeReporte(generaReporte(capturaNuevaTarjeta(creaTarjeta())))
-
-# Para validar si este script es el programa principal
-if __name__ == "__main__":
-    main()    
-        

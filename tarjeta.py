@@ -4,13 +4,14 @@ import os
 os.system("clear")
 
 
-
+#Solicitamos valores de entrada
 nombre = input("Nombre del dueño de la tarjeta: ")
 tasaAnual = float(input("Tasa de interés anual de la tarjeta (%): "))
 deuda = float(input("Escribe el monto de la deuda actual de la tarjeta: "))
 pago = float(input("Escribe el monto del pago a realizar: "))
 cargos = float(input("Escribe el monto total de los nuevos cargos: "))
     
+#Generamos un condicional que nos diga si podemos proceder o no con la operación    
 if pago > deuda:
     print("No es posible realizar un pago mayot a la deuda, intente de nuevo.")
 else:   
